@@ -8,16 +8,24 @@
 			
 		<a href="Ofertas.html">   <img src="{% static 'img/m1.jpg'%}" height="100%" width="1400px" alt="gabe"  ></a>
 		</div>
-
+	{% if user.is_authenticated %}
 
 		<div class="col-lg-3" style="background-color:lavenderblush;">
+			<p>Bienvenido {{ user }} </p>
+
+			<a href="{% url 'logout' %}" > Cerrar Sesion</a>
+		</div>
+
+	{% else %}
+		<div class="col-lg-3" style="background-color:lavenderblush;">
 			<p>Inicio de sesión</p>
-			<a href="{% url 'iniciador' %}" class="btn btn-primary btn-lg">Ingresar</a>
+			<a href="{% url 'login' %}" class="btn btn-primary btn-lg">Ingresar</a>
 			<br>
 			<br>
 			<p>¿No tienes cuenta?</p>
 			<a href="{% url 'registrador' %}" class="btn btn-primary btn-lg">Registrar</a>
 			<br>
 		</div>
+	{% endif %}
 	</div>
 	{% endblock %}
