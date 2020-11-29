@@ -6,7 +6,7 @@
 	<div class="row ">
 		<div class="col-lg-9">
 			
-		<a href="Ofertas.html">   <img src="{% static 'img/m1.jpg'%}" height="100%" width="1400px" alt="gabe"  ></a>
+		<a href="{% url 'ofertas' %}">   <img src="{% static 'img/m1.jpg'%}" height="100%" width="1400px" alt="gabe"  ></a>
 		</div>
 	{% if user.is_authenticated %}
 
@@ -23,7 +23,7 @@
 			<br>
 			<br>
 			<p>¿No tienes cuenta?</p>
-			<a href="{% url 'registrador' %}" class="btn btn-primary btn-lg">Registrar</a>
+			<a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Registrar</a>
 			<br>
 		</div>
 	{% endif %}

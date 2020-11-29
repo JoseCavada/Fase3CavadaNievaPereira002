@@ -1,0 +1,31 @@
+{% extends "base_generic.html" %}
+
+    {% block title %}<title>Registro de usuario</title>{% endblock %}
+    {% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form class="form-horizontal" method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend class="col-md-8">Registro Usuario</legend>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <div class="col-md-12">
+                                <button type="submit"  class="btn btn-primary btn-lg" >Registrar</button>
+                            </div>
+                        </form>
+
+                        <div class="form-group">
+                            
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
