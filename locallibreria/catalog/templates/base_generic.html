@@ -8,7 +8,8 @@
 	<base href="/">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"> 
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+	<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+	
 </head>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark"  > 
@@ -20,7 +21,10 @@
 				<ul class="navbar-nav">
 				<li class="nav-link"><a href="{% url 'index' %}">Inicio<span class="sr-only"></span></a></li> 
 				<li class="nav-link"><a href="{% url 'ofertas' %}">Juegos</a></li>  
-				<li class="nav-link"><a href="{% url 'contacto' %}">Contáctenos</a></li>  
+				<li class="nav-link"><a href="{% url 'contacto' %}">Contáctenos</a></li>
+				{% if user.is_authenticated  %}{% if user.is_staff %}
+                <li class="nav-link">  <a href="{% url 'videojuego_create' %}">Crear videojuego</a></li>>
+                {% endif %}{% endif %}  
 				</ul>
 			</div>
 		</nav>

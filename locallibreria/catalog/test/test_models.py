@@ -1,5 +1,7 @@
-from django.test import TestCase
-from catalog.models import Videojuego 
+from django.test import TestCase,Client
+from catalog.models import Videojuego
+
+
 class PruebaM(TestCase):
 	@classmethod
 
@@ -30,3 +32,27 @@ class PruebaM(TestCase):
 		videojuego=Videojuego.objects.get(id='21a49a5b-9d10-4964-bf2d-24c1b97fe351')
 		field_label = Videojuego._meta.get_field('descripcion').verbose_name
 		self.assertEquals(field_label,'descripcion')
+
+class ViewTest(TestCase):
+	def test_Catalog(self):
+		c= Client()
+		resp=c.get('/catalog/')
+		self.assertEqual(resp.status_code, 200)
+	def test_Ofertas(self):
+		o= Client()
+		resp=o.get('/catalog/ofertas/')
+		self.assertEqual(resp.status_code, 200)
+	def test_Contacto(self):
+		co= Client()
+		resp=co.get('/catalog/contacto/')
+		self.assertEqual(resp.status_code, 200)
+	def test_Registro(self):
+		r= Client()
+		resp=r.get('/accounts/signup/')
+		self.assertEqual(resp.status_code, 200)
+	def test_InicioSesion(self):
+		i= Client()
+		resp=i.get('/accounts/login/')
+		self.assertEqual(resp.status_code, 200)
+
+		
