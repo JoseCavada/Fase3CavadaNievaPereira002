@@ -8,8 +8,10 @@
                 <form class="form-horizontal" method="post">
                     <fieldset>
                         <legend class="col-md-8">Inicie Sesion</legend>
+                        {% load socialaccount %}
 
-                        
+                        <a href="{% provider_login_url "openid" openid="https://www.google.com/accounts/o8/id" next="/success/url/" %}">Google</a>
+
 
                         <div class="form-group">
                             <div class="col-md-8">

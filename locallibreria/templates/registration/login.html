@@ -40,6 +40,10 @@
                                 <input type="hidden" name="next" value="{{ next }} "/>
                             </div>
                         </div>
+                        {% load socialaccount %}
+
+                         <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
                         <p><a href="{% url 'password_reset' %}">¿Olvidaste tu contraseña?</a></p>
                     </fieldset>
                 </form>
